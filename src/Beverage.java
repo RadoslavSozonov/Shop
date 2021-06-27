@@ -5,30 +5,6 @@ public class Beverage extends PerishableProduct implements Discount{
         super(name, brand, price, date);
     }
 
-    public String[] productInfo(String quantity, Date date) {
-        String[] information = new String[3];
-
-        information[0] = this.toString(quantity);
-        information[1] = String.valueOf(estimatePrice(quantity));
-        information[2] = String.valueOf(discount(this.getDate(),date,Double.parseDouble(information[1])));
-        if(!information[2].equals("0.0")){
-            if(Math.round(Double.parseDouble(information[1])*0.1*100.0)/100.0==Double.parseDouble(information[2])){
-                information[0] = information[0]+"#discount 10%  -$"+information[2]+"\n";
-            }
-            else if(Math.round(Double.parseDouble(information[1])*0.5*100.0)/100.0==Double.parseDouble(information[2])){
-                information[0] = information[0]+"#discount 50%  -$"+information[2]+"\n";
-            }
-
-        }
-        return information;
-    }
-
-    @Override
-    public String toString(String quantity) {
-        double numProducts = Double.parseDouble(quantity);
-        return this.getName()+" "+this.getBrand()+"\n"
-                +numProducts+" x $" +this.getPrice() +" = $"+super.estimatePrice(quantity)+"\n";
-    }
 }
 //    public String[] productInfo(String quantity, Date date) {
 //        String[] information = new String[3];
@@ -61,4 +37,29 @@ public class Beverage extends PerishableProduct implements Discount{
 //            return 0.1*price;
 //        }
 //        return 0.0;
+//    }
+
+//    public String[] productInfo(String quantity, Date date) {
+//        String[] information = new String[3];
+//
+//        information[0] = this.toString(quantity);
+//        information[1] = String.valueOf(estimatePrice(quantity));
+//        information[2] = String.valueOf(discount(this.getDate(),date,Double.parseDouble(information[1])));
+//        if(!information[2].equals("0.0")){
+//            if(Math.round(Double.parseDouble(information[1])*0.1*100.0)/100.0==Double.parseDouble(information[2])){
+//                information[0] = information[0]+"#discount 10%  -$"+information[2]+"\n";
+//            }
+//            else if(Math.round(Double.parseDouble(information[1])*0.5*100.0)/100.0==Double.parseDouble(information[2])){
+//                information[0] = information[0]+"#discount 50%  -$"+information[2]+"\n";
+//            }
+//
+//        }
+//        return information;
+//    }
+//
+//    @Override
+//    public String toString(String quantity) {
+//        double numProducts = Double.parseDouble(quantity);
+//        return this.getName()+" "+this.getBrand()+"\n"
+//                +numProducts+" x $" +this.getPrice() +" = $"+super.estimatePrice(quantity)+"\n";
 //    }

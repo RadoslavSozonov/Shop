@@ -35,9 +35,14 @@ public abstract class Product {
         this.price = price;
     }
 
-    public String toString(String quantity){
+    protected String toString(String quantity){
         return "";
     }
 
     public abstract String[] productInfo(String quantity, Date date);
+
+    protected double estimatePrice(String quantity){
+        double weight = Double.parseDouble(quantity);
+        return Math.round(weight* this.getPrice()*100.0)/100.0;
+    }
 }

@@ -58,8 +58,8 @@ public class Clothes extends Product implements Discount{
         }
         return 0.0;
     }
-    protected double estimatePrice(String quantity){
-        double weight = Double.parseDouble(quantity);
-        return Math.round(weight* this.getPrice()*100.0)/100.0;
-    }
+//    protected double estimatePrice(String quantity){
+//        double weight = Double.parseDouble(quantity);
+//        return Math.round(weight* this.getPrice()*100.0)/100.0;
+//    }
 }
