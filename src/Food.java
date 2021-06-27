@@ -13,10 +13,10 @@ public class Food extends PerishableProduct implements Discount {
         information[1] = String.valueOf(estimatePrice(quantity));
         information[2] = String.valueOf(discount(this.getDate(),date,Double.parseDouble(information[1])));
         if(!information[2].equals("0.0")){
-            if(Integer.parseInt(information[1])*0.1==Integer.parseInt(information[2])){
+            if(Math.round(Double.parseDouble(information[1])*0.1*100.0)/100.0==Double.parseDouble(information[2])){
                 information[0] = information[0]+"#discount 10%  -$"+information[2]+"\n";
             }
-            else if(Integer.parseInt(information[1])*0.5==Integer.parseInt(information[2])){
+            else if(Math.round(Double.parseDouble(information[1])*0.5*100.0)/100.0==Double.parseDouble(information[2])){
                 information[0] = information[0]+"#discount 50%  -$"+information[2]+"\n";
             }
 
@@ -26,8 +26,8 @@ public class Food extends PerishableProduct implements Discount {
 
     @Override
     public String toString(String quantity) {
-        double weight = Double.parseDouble(quantity.substring(1));
-        return this.getName()+" - "+this.getBrand()+"\n\n"
+        double weight = Double.parseDouble(quantity);
+        return this.getName()+" - "+this.getBrand()+"\n"
                 +weight+" x $" +this.getPrice() +" = $"+super.estimatePrice(quantity)+"\n";
     }
 

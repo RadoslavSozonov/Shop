@@ -22,7 +22,7 @@ public class Cashier {
 
         System.out.println("-----------------------------------------------------------------------------------");
         System.out.println("SUBTOTAL: $"+sum);
-        System.out.println("DISCOUNT: $"+discountSum+"\n");
+        System.out.println("DISCOUNT: -$"+discountSum+"\n");
         System.out.println("TOTAL: $"+(sum-discountSum));
     }
 
