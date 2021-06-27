@@ -37,24 +37,35 @@ class CashierTest {
         cashier = new Cashier(catalog);
     }
 
-
+    /**
+     * Print out the whole receipt
+     */
     @Test
     public void testPrintReceipt(){
 
         cashier.printReceipt(cart,Date.valueOf("2021-06-14"),Time.valueOf("12:34:56"));
     }
 
+    /**
+     * Print out the beginning of the receipt
+     */
     @Test
     public void testBeginningOfReceipt(){
         Cashier cashier2 = new Cashier(new CatalogOfProducts());
         cashier2.beginningOfReceipt(Date.valueOf(LocalDate.now()), Time.valueOf(LocalTime.now()));
     }
 
+    /**
+     * Print out the body of the receipt
+     */
     @Test
     public void testBodyOfReceipt(){
         cashier.bodyOfReceipt(cart,Date.valueOf("2021-06-14"));
     }
 
+    /**
+     * Print out the end of the receipt
+     */
     @Test
     public void testEndOfReceipt(){
         Cashier cashier2 = new Cashier(new CatalogOfProducts());
